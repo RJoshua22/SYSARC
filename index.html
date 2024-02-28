@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login Form</title>
+      <link rel="stylesheet" href="./css/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="bg-img" id="loginForm">
+         <div class="content">
+            <header>Login Form</header>
+            <form id="loginForm" action="#">
+               <div class="field">
+                  <span class="fa fa-user"></span>
+                  <input type="text" required placeholder="Email or Phone">
+               </div>
+               <div class="field space">
+                  <span class="fa fa-lock"></span>
+                  <input type="password" class="pass-key" required placeholder="Password">
+                  <span class="show">SHOW</span>
+               </div>
+               <div class="pass">
+                  <a href="#">Forgot Password?</a>
+               </div>
+               <div class="field">
+                  <input type="submit" value="LOGIN">
+               </div>
+            </form>
+            <div class="login">
+               Or login with
+            </div>
+            <div class="links">
+               <div class="facebook">
+                  <i class="fab fa-facebook-f"><span><a href="https://www.facebook.com/">Facebook</a></span></i>
+               </div>
+               <div class="instagram">
+                  <i class="fab fa-instagram"><span>Instagram</span></i>
+               </div>
+            </div>
+            <div class="signup">
+               Don't have an account?
+               <a  onclick="toggleForms()">Sign up Now</a>
+            </div>
+         </div>
+      </div>
+      <div class="bg-img" style="display: none;" id="registrationForm">
+         <div class="content">
+            <header>Registration Form</header>
+            <form id="registrationForm" action="#">
+               <div class="field">
+                  <span class="fa fa-user"></span>
+                  <input type="text" required placeholder="Full Name">
+               </div>
+               <div class="field">
+                  <span class="fa fa-user"></span>
+                  <input type="text" required placeholder="Email or Phone">
+               </div>
+               <div class="field space">
+                  <span class="fa fa-lock"></span>
+                  <input type="password" class="pass-key" required placeholder="Password">
+                  <span class="show">SHOW</span>
+               </div>
+               <div class="field">
+                  <input type="submit" value="REGISTER">
+               </div>
+            </form>
+            <div class="login">
+               Already have an account?
+            </div>
+            <div class="signup">
+               <a href="#" onclick="toggleForms()">Login Now</a>
+            </div>
+         </div>
+      </div>
+      <script>
+         const pass_field = document.querySelector('.pass-key');
+         const showBtn = document.querySelector('.show');
+
+         showBtn.addEventListener('click', function(){
+            if(pass_field.type === "password"){
+               pass_field.type = "text";
+               showBtn.textContent = "HIDE";
+               showBtn.style.color = "#3498db";
+            } else {
+               pass_field.type = "password";
+               showBtn.textContent = "SHOW";
+               showBtn.style.color = "#222";
+            }
+         });
+
+         function toggleForms() {
+            const loginForm = document.getElementById('loginForm');
+            const registrationForm = document.getElementById('registrationForm');
+
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            registrationForm.style.display = registrationForm.style.display === 'none' ? 'block' : 'none';
+         }
+      </script>
+   </body>
+</html>
